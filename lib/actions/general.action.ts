@@ -43,10 +43,12 @@ export async function createFeedback(params: CreateFeedbackParams) {
 
   try {
 // content is what the person has answered
-    const formattedTranscript = transcript.map((sentence: { role: string; content: string }) => (
-      `- ${sentence.role}: ${sentence.content}\n`
-    )).join(' ');
-
+    const formattedTranscript = transcript
+      .map(
+        (sentence: { role: string; content: string }) =>
+          `- ${sentence.role}: ${sentence.content}\n`,
+      )
+      .join('');
     const {
       object: {
         totalScore,
